@@ -455,14 +455,14 @@ if __name__ == '__main__':
     # plot_smape(data, filename=f'metrics{i + 1}.html')
 
     """EXPERIMENT 3"""
-    results5 = run_experiment2(data_dict=data_dict,
+    results6 = run_experiment2(data_dict=data_dict,
                                cities_stations_pairs=[('Beijing', station) for station in data_dict['Beijing'].keys()] +
                                                      [('London', station) for station in data_dict['London'].keys()],
                                train_size=14 * 24,  # 14 days * 24 hours
                                test_size=12, sequence_length=8, verbose=False)
-    i = 4
+    i = 5
     with open(f'results{i + 1}.json', 'w') as f:
-        json.dump(results5, f)
+        json.dump(results6, f)
 
     # load dict
     with open(f'results{i + 1}.json', 'r') as f:

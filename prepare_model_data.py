@@ -142,7 +142,7 @@ def create_data_for_train_and_test_extra_features(data, first_ts, test_size, seq
              4. scaler - the scaler used for scaling data values
     """
     # here goes the extra data that should be added (besides the raw time series data)
-    auxiliary_features = get_auxiliary_features(data=data, first_ts=first_ts, dayofweek=True, hourofday=False)
+    auxiliary_features = get_auxiliary_features(data=data, first_ts=first_ts, dayofweek=False, hourofday=True)
     aux_data_onehot = aux_features_to_onehot(aux_features=auxiliary_features,
                                              categories=[list(range(7)), list(range(24))])
 
