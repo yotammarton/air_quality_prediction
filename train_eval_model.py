@@ -406,63 +406,13 @@ if __name__ == '__main__':
     data_dict = preprocess_raw_data.load_raw_data_to_dict(path)
 
     """BASELINE"""
-    # results1 = run_baseline(data_dict=data_dict,
-    #                         cities_stations_pairs=[('Beijing', station) for station in data_dict['Beijing'].keys()] +
-    #                                               [('London', station) for station in data_dict['London'].keys()],
-    #                         test_size=12, sequence_length=8, verbose=False)
-    # i = 0
-    # with open(f'results{i + 1}.json', 'w') as f:
-    #     json.dump(results1, f)
-    #
-    # # load dict
-    # with open(f'results{i + 1}.json', 'r') as f:
-    #     data = json.load(f)
-    #
-    # # plot results
-    # plot_smape(data, filename=f'metrics{i + 1}.html')
-    #
-    # """EXPERIMENT 1"""
-    # results2 = run_experiment1(data_dict=data_dict,
-    #                            cities_stations_pairs=[('Beijing', station) for station in data_dict['Beijing'].keys()] +
-    #                                                  [('London', station) for station in data_dict['London'].keys()],
-    #                            n_parts=3, test_size=12, sequence_length=8, verbose=False)
-    # i = 1
-    # with open(f'results{i + 1}.json', 'w') as f:
-    #     json.dump(results2, f)
-    #
-    # # load dict
-    # with open(f'results{i + 1}.json', 'r') as f:
-    #     data = json.load(f)
-    #
-    # # plot results
-    # plot_smape(data, filename=f'metrics{i + 1}.html')
-    #
-    # """EXPERIMENT 2"""
-    # results3 = run_experiment2(data_dict=data_dict,
-    #                            cities_stations_pairs=[('Beijing', station) for station in data_dict['Beijing'].keys()] +
-    #                                                  [('London', station) for station in data_dict['London'].keys()],
-    #                            train_size=14 * 24,  # 14 days * 24 hours
-    #                            test_size=12, sequence_length=8, verbose=False)
-    # i = 2
-    # with open(f'results{i + 1}.json', 'w') as f:
-    #     json.dump(results3, f)
-    #
-    # # load dict
-    # with open(f'results{i + 1}.json', 'r') as f:
-    #     data = json.load(f)
-    #
-    # # plot results
-    # plot_smape(data, filename=f'metrics{i + 1}.html')
-
-    """EXPERIMENT 3"""
-    results6 = run_experiment2(data_dict=data_dict,
-                               cities_stations_pairs=[('Beijing', station) for station in data_dict['Beijing'].keys()] +
-                                                     [('London', station) for station in data_dict['London'].keys()],
-                               train_size=14 * 24,  # 14 days * 24 hours
-                               test_size=12, sequence_length=8, verbose=False)
-    i = 5
+    results1 = run_baseline(data_dict=data_dict,
+                            cities_stations_pairs=[('Beijing', station) for station in data_dict['Beijing'].keys()] +
+                                                  [('London', station) for station in data_dict['London'].keys()],
+                            test_size=12, sequence_length=8, verbose=False)
+    i = 0
     with open(f'results{i + 1}.json', 'w') as f:
-        json.dump(results6, f)
+        json.dump(results1, f)
 
     # load dict
     with open(f'results{i + 1}.json', 'r') as f:
@@ -471,14 +421,52 @@ if __name__ == '__main__':
     # plot results
     plot_smape(data, filename=f'metrics{i + 1}.html')
 
-    # for i, results in enumerate([results1, results2, results3, results4]):
-    #     # save dict
-    #     with open(f'results{i + 1}.json', 'w') as f:
-    #         json.dump(results, f)
-    #
-    #     # load dict
-    #     with open(f'results{i + 1}.json', 'r') as f:
-    #         data = json.load(f)
-    #
-    #     # plot results
-    #     plot_smape(data, filename=f'metrics{i + 1}.html')
+    """EXPERIMENT 1"""
+    results2 = run_experiment1(data_dict=data_dict,
+                               cities_stations_pairs=[('Beijing', station) for station in data_dict['Beijing'].keys()] +
+                                                     [('London', station) for station in data_dict['London'].keys()],
+                               n_parts=3, test_size=12, sequence_length=8, verbose=False)
+    i = 1
+    with open(f'results{i + 1}.json', 'w') as f:
+        json.dump(results2, f)
+
+    # load dict
+    with open(f'results{i + 1}.json', 'r') as f:
+        data = json.load(f)
+
+    # plot results
+    plot_smape(data, filename=f'metrics{i + 1}.html')
+
+    """EXPERIMENT 2"""
+    results3 = run_experiment2(data_dict=data_dict,
+                               cities_stations_pairs=[('Beijing', station) for station in data_dict['Beijing'].keys()] +
+                                                     [('London', station) for station in data_dict['London'].keys()],
+                               train_size=14 * 24,  # 14 days * 24 hours
+                               test_size=12, sequence_length=8, verbose=False)
+    i = 2
+    with open(f'results{i + 1}.json', 'w') as f:
+        json.dump(results3, f)
+
+    # load dict
+    with open(f'results{i + 1}.json', 'r') as f:
+        data = json.load(f)
+
+    # plot results
+    plot_smape(data, filename=f'metrics{i + 1}.html')
+
+    """EXPERIMENT 3"""
+    results4 = run_experiment2(data_dict=data_dict,
+                               cities_stations_pairs=[('Beijing', station) for station in data_dict['Beijing'].keys()] +
+                                                     [('London', station) for station in data_dict['London'].keys()],
+                               train_size=14 * 24,  # 14 days * 24 hours
+                               test_size=12, sequence_length=8, verbose=False)
+    i = 3
+    with open(f'results{i + 1}.json', 'w') as f:
+        json.dump(results4, f)
+
+    # load dict
+    with open(f'results{i + 1}.json', 'r') as f:
+        data = json.load(f)
+
+    # plot results
+    plot_smape(data, filename=f'metrics{i + 1}.html')
